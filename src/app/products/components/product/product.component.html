@@ -1,0 +1,26 @@
+<div class="card h-100" >
+  <!-- Product image-->
+  <img class="card-img-top" src="{{data.image}}" alt="..."   routerLink="/details/{{data.id}}">
+  <!-- Product details-->
+  <div class="card-body p-4">
+      <div class="text-center">
+          <!-- Product name-->
+          <h7 class="fw-bolder">{{data.title}}</h7>
+          <!-- <p style="font-size: 11px">{{item.description}}</p> -->
+
+          <p style="font-size: 11px">{{ (data.description.length>6)? (data.description | slice:0:160)+'..':(data.description) }}</p>
+
+          <!-- Product price-->
+          {{data.price  | currency }}
+      </div>
+  </div>
+  <!-- Product actions-->
+  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+      <div class="text-center"><button class="myBtn"  *ngIf="showAdd" (click)="addTo()">Add To card</button></div>
+      <br>
+      <div class="d-flex"  *ngIf="!showAdd">
+          <input type="number" class="form-control" [(ngModel)]="amount">
+          <button class="myBtnDanger" (click)="add()">Add</button>
+      </div>
+  </div>
+</div>

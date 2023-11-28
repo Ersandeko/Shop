@@ -1,0 +1,9 @@
+
+    <h5>{{title}}</h5>
+ <!-- <select class="form-select" (change)="fitreCategorie($event)" >-->
+  <select class="form-select" (change)="detectChanges($event)" >
+    <option >All selected</option>
+    <!-- <option *ngFor="let cat of category" >{{cat}}</option> -->
+     <option *ngFor="let cat of data" >{{cat}}</option>
+
+  </select>

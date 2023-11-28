@@ -1,0 +1,57 @@
+<div class="box">
+  <br>
+<h3 >Shopping Cart</h3>
+<p>You have {{cartProduct.length}} item in your cart</p>
+<div style="text-align: right; padding: 10px 0px;">
+  <button (click)="clearCart()">Clear shopping Cart</button>
+</div>
+  <div class="table-responsive">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th >Product</th>
+                  <th style="width:600px">Title</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>Delete</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of cartProduct; let index = index">
+                  <td>
+                      <a href="#">
+                          <img src="{{item.item.image}}"  alt="Image engelCARD" style="max-width:100px;">
+                      </a>
+                  </td>
+                  <td><p>engelCARD <span class="text-info">{{item.item.title}}</span></p>
+                  </td>
+                  <td>{{item.item.price}}</td>
+                  <td class="quantity">
+                    <button class="btn btn-dark" (click)="minAmount(index)">-</button>
+
+                      <input type="number" class="form-control" (change)="detectChange()" min="1" [(ngModel)]="item.quantity">
+                      <button class="btn btn-dark" (click)="AddAmount(index)">+</button>
+
+                  </td>
+
+                  <td>{{item.item.price * item.quantity}}</td>
+                  <td><button (click)="deleteProduct(index)">Delete</button>
+                  </td>
+              </tr>
+
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="6" style="text-align: right;" >Total : <strong>{{total}}</strong></td>
+              </tr>
+              <tr>
+                <td colspan="6" style="text-align: right;"><button (click)="addCart()">Order Now</button></td>
+            </tr>
+          </tfoot>
+      </table>
+    <div class="alert alert-primary" role="alert" *ngIf="success">
+   <strong>Well done !</strong> Your order is succefully send
+   </div>
+  </div>
+  </div>

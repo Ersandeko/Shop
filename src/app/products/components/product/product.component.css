@@ -1,0 +1,28 @@
+img {
+
+  max-width: 100px;
+    max-height: 110px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.myBtn{
+  background-color: #000;
+  color: aliceblue;
+  font-size: 13px;
+  padding: 5px 15px;
+  border: none;
+}
+
+.myBtnDanger{
+  background-color: rgb(139, 1, 1);
+  color: aliceblue;
+  font-size: 13px;
+  padding: 3px 8px;
+  border: none;
+
+}
+
+.form-control{
+  border-radius: 0;
+}

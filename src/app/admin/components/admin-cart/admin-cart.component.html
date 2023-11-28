@@ -1,0 +1,79 @@
+<div class="box">
+<br><br>
+  <form action="/action_page.php" [formGroup]="form">
+    <div class="row">
+    <div class="col-md-3">
+      <label for="">Start Date:</label>
+      <input type="date" class="form-control" formControlName="start">
+    </div>
+    <div class="col-md-3">
+      <label for="">End Date:</label>
+      <input type="date" class="form-control" formControlName="end">
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-success" (click)="applyFilter()">Apply</button>
+    </div>
+  </div>
+  </form>
+  <hr>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                   <th>Product</th>
+                    <th style="width:600px">Date</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of cart; let index = index">
+                    <td>{{data.id}}</td>
+                    <td>{{data.date | date : "shortDate"}}</td>
+                    <td>{{data.products.length}}</td>
+                    <td>
+                      <button class="btn btn-danger mx-2" (click)="deleteCarts(data.id)">Delete</button>
+                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="view(index)">View</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">title</th>
+              <th scope="col">price</th>
+              <th scope="col">description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of myProducts">
+              <th scope="row">{{item.id}}</th>
+              <td><img src="{{item.image}}" width="60"></td>
+              <td>{{item.title}}</td>
+              <td>{{item.category}}</td>
+              <td>{{item.price}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>

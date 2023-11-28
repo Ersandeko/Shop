@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 ">
+      <a class="navbar-brand" href="#!">ANGULAR SHOP</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <!-- <li class="nav-item"><a class="nav-link" routerLink="products"  >Home</a></li> -->
+              <li class="nav-item"><a class="nav-link" routerLink="products" >Products</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="contact"  >Contact</a></li>
+
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-outline-dark mx-2" type="submit" routerLink="adminCart">
+              Admin
+          </button>
+              <button class="btn btn-outline-dark" routerLink="carts">
+                  <i class="bi-cart-fill me-1"></i>
+                  Cart
+                  <span class="badge bg-dark text-white ms-1 rounded-pill"  >{{mycount}}</span>
+              </button>
+          </form>
+      </div>
+  </div>
+</nav>
+
+
+<header class="bg-dark py-2">
+  <div class="container px-2 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-6 fw-bolder text-white-10">Angular Shop</h1>
+          
+      </div>
+  </div>
+</header>
+
+
+
+

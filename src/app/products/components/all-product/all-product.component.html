@@ -1,0 +1,18 @@
+
+
+<section>
+  <div class="container  px-lg-5 mt-3">
+    <div class="col-md-3 ">
+    <app-select [data]="category" [title]="title" (selectValue)="fitreCategorie($event)"></app-select>
+  </div>
+<hr>
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" *ngIf="!loading">
+          <div class="col mb-5" *ngFor="let item of products; let i = index">
+              <app-product [data]="item" (items)="addTocarEvent($event)"></app-product>
+          </div>
+      </div>
+      <div class="text-center w-100" *ngIf="loading">
+        <app-spinner></app-spinner>
+      </div>
+  </div>
+</section>
